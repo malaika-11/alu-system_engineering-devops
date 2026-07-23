@@ -1,90 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>404 - Lost in Space</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            height: 100vh;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+<title>404 - Lost Galaxy</title>
 
-        .container {
-            max-width: 700px;
-            padding: 40px;
-        }
+<style>
 
-        h1 {
-            font-size: 120px;
-            margin-bottom: 20px;
-            animation: float 3s infinite ease-in-out;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
 
-        h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
+body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
 
-        p {
-            font-size: 18px;
-            opacity: 0.8;
-            margin-bottom: 30px;
-        }
+    background:
+    radial-gradient(circle at top, #312e81, #020617 70%);
+}
 
-        a {
-            text-decoration: none;
-            color: white;
-            background: #ff6b6b;
-            padding: 15px 30px;
-            border-radius: 30px;
-            transition: 0.3s;
-        }
 
-        a:hover {
-            background: #ff4757;
-            transform: scale(1.05);
-        }
+/* Moving stars */
 
-        .planet {
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
+body::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-image:
+        radial-gradient(white 2px, transparent 2px),
+        radial-gradient(#38bdf8 1px, transparent 1px);
 
-        @keyframes float {
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-    </style>
+    background-size: 80px 80px, 120px 120px;
+    animation: stars 30s linear infinite;
+    opacity: 0.4;
+}
+
+@keyframes stars {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-500px);
+    }
+
+}
+
+
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+
+/* Planet animation */
+
+.planet {
+
+    font-size: 90px;
+
+    animation:
+        float 4s ease-in-out infinite,
+        spin 15s linear infinite;
+
+}
+
+
+@keyframes float {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-25px);
+    }
+
+}
+
+
+@keyframes spin {
+
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+
+}
+
+
+
+/* Rocket */
+
+.rocket {
+
+    position: absolute;
+    font-size: 50px;
+
+    animation: fly 8s linear infinite;
+
+}
+
+
+@keyframes fly {
+
+    0% {
+        left: -100px;
+        bottom: 20%;
+        transform: rotate(30deg);
+    }
+
+
+    50% {
+        left: 50%;
+        bottom: 70%;
+        transform: rotate(10deg);
+    }
+
+
+    100% {
+        left: 110%;
+        bottom: 20%;
+        transform: rotate(-20deg);
+    }
+
+}
+
+
+/* 404 text */
+
+
+.number {
+
+    font-size: 170px;
+    font-weight: 900;
+    letter-spacing: 15px;
+
+    background: linear-gradient(
+        90deg,
+        #38bdf8,
+        #a78bfa,
+        #f472b6
+    );
+
+    -webkit-background-clip: text;
+    color: transparent;
+
+
+    animation:
+
+        glow 2s infinite alternate;
+
+}
+
+
+
+@keyframes glow {
+
+    from {
+        filter:
+        drop-shadow(0 0 10px #38bdf8);
+    }
+
+    to {
+        filter:
+        drop-shadow(0 0 40px #f472b6);
+    }
+
+}
+
+
+
+h1 {
+
+    font-size: 45px;
+    margin-bottom: 20px;
+
+}
+
+
+
+p {
+
+    font-size: 20px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 35px;
+
+}
+
+
+
+/* Button */
+
+
+a {
+
+    display: inline-block;
+
+    padding: 16px 40px;
+
+    border-radius: 50px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #38bdf8,
+        #818cf8
+    );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+
+    box-shadow:
+    0 0 20px #38bdf8;
+
+
+    animation:
+    pulse 2s infinite;
+
+}
+
+
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+a:hover {
+
+    background:white;
+    color:#020617;
+
+}
+
+
+.small {
+
+    margin-top:30px;
+
+    font-size:14px;
+
+    color:#94a3b8;
+
+}
+
+
+</style>
+
 </head>
 
+
 <body>
-    <div class="container">
-        <div class="planet">🪐</div>
 
-        <h1>404</h1>
 
-        <h2>Ceci n'est pas une page</h2>
+<div class="rocket">🚀</div>
 
-        <p>
-            Looks like you traveled too far into the internet universe.
-            The page you are searching for has disappeared into space.
-        </p>
 
-        <a href="/">Return Home</a>
+<div class="container">
+
+    <div class="planet">🪐</div>
+
+
+    <div class="number">
+        404
     </div>
+
+
+    <h1>
+        Ceci n'est pas une page
+    </h1>
+
+
+    <p>
+        Houston, we lost this page.
+        <br>
+        It escaped into the digital universe.
+    </p>
+
+
+    <a href="/">
+        🚀 Return Home
+    </a>
+
+
+    <div class="small">
+        Error detected • Mission control notified
+    </div>
+
+
+</div>
+
+
 </body>
 </html>
 
